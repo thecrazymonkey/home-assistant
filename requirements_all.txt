@@ -1,7 +1,7 @@
 # Home Assistant core
 aiohttp==3.4.4
 astral==1.6.1
-async_timeout==3.0.0
+async_timeout==3.0.1
 attrs==18.2.0
 bcrypt==3.1.4
 certifi>=2018.04.16
@@ -463,10 +463,10 @@ hipnotify==1.0.8
 hole==0.3.0
 
 # homeassistant.components.binary_sensor.workday
-holidays==0.9.7
+holidays==0.9.8
 
 # homeassistant.components.frontend
-home-assistant-frontend==20181018.0
+home-assistant-frontend==20181021.0
 
 # homeassistant.components.homekit_controller
 # homekit==0.10
@@ -790,9 +790,6 @@ pyW215==0.6.0
 # homeassistant.components.sensor.noaa_tides
 # py_noaa==0.3.0
 
-# homeassistant.components.cover.ryobi_gdo
-py_ryobi_gdo==0.0.10
-
 # homeassistant.components.ads
 pyads==2.2.6
 
@@ -803,7 +800,7 @@ pyairvisual==2.0.1
 pyalarmdotcom==0.3.2
 
 # homeassistant.components.arlo
-pyarlo==0.2.0
+pyarlo==0.2.2
 
 # homeassistant.components.netatmo
 pyatmo==1.2
@@ -1008,7 +1005,7 @@ pymysensors==0.17.0
 pynello==1.5.1
 
 # homeassistant.components.device_tracker.netgear
-pynetgear==0.4.2
+pynetgear==0.5.0
 
 # homeassistant.components.switch.netio
 pynetio==0.1.9.1

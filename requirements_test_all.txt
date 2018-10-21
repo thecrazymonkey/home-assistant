@@ -94,10 +94,10 @@ hbmqtt==0.9.4
 hdate==0.6.5
 
 # homeassistant.components.binary_sensor.workday
-holidays==0.9.7
+holidays==0.9.8
 
 # homeassistant.components.frontend
-home-assistant-frontend==20181018.0
+home-assistant-frontend==20181021.0
 
 # homeassistant.components.homematicip_cloud
 homematicip==0.9.8
