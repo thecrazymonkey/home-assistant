@@ -8,7 +8,7 @@ import logging
 import asyncio
 import voluptuous as vol
 from homeassistant.components.switch import SwitchDevice, PLATFORM_SCHEMA
-from homeassistant.const import (CONF_NAME, CONF_HOST, CONF_ID, CONF_SWITCHES, CONF_FRIENDLY_NAME)
+from homeassistant.const import (CONF_NAME, CONF_HOST, CONF_ID, CONF_SWITCHES, CONF_FRIENDLY_NAME, CONF_SCAN_INTERVAL)
 from homeassistant.core import callback
 import homeassistant.helpers.config_validation as cv
 
@@ -28,6 +28,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_NAME): cv.string,
     vol.Optional(CONF_HOST, default=''): cv.string,
     vol.Required(CONF_DEVICE_ID): cv.string,
+    vol.Optional(CONF_SCAN_INTERVAL, default=30): cv.time_period,
     vol.Required(CONF_LOCAL_KEY): cv.string,
     vol.Optional(CONF_ID, default=DEFAULT_ID): cv.string,
     vol.Optional(CONF_SWITCHES, default={}):
@@ -81,7 +82,9 @@ async def async_setup_platform(hass, config, async_add_devices, discovery_info=N
             config.get(CONF_ID)
         )
         switches.append(tuyadevice)
-        _LOGGER.debug("async_setup_platform adding name %s/%s", config.get(CONF_NAME), config.get(CONF_ID))
+        _LOGGER.debug("async_setup_platform adding name %s/%s",
+                      config.get(CONF_NAME),
+                      config.get(CONF_ID))
 
     tuyamanger.switches = switches
     outlet_device.tuyadevice = outlet_device
@@ -115,10 +118,10 @@ class TuyaIPDiscovery(asyncio.DatagramProtocol):
         _LOGGER.debug("Starting Discovery UDP server")
 
     def datagram_received(self, data, addr):
-        (error, result) = self.parser.extract_payload(data)
+        (error, result, command) = self.parser.extract_payload(data)
 
         if error is False:
-            _LOGGER.debug('Resolve string=%s', result)
+            _LOGGER.debug('Resolve string=%s (command:%i', result, command)
             thisid = result['gwId']
             # check if already registered, if not add to the list and create a handler instance
             if thisid == self.dev_id:
@@ -170,7 +173,12 @@ class TuyaManager:
                 if switch.is_on != dps[switch.switchid]:
                     switch.set_state(dps[switch.switchid])
                     # notify hass to update state
-                    # switch.schedule_update_ha_state()
+                    switch.schedule_update_ha_state()
+    @callback
+    def on_connection_lost(self, exc):
+        """Called when Tuya device lost connection."""
+        _LOGGER.debug('on_connection_lost(): %s', exc)
+        # may need some handling if message did not get sent
 
 
 class TuyaPlug(SwitchDevice):
