@@ -28,7 +28,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_NAME): cv.string,
     vol.Optional(CONF_HOST, default=''): cv.string,
     vol.Required(CONF_DEVICE_ID): cv.string,
-    vol.Optional(CONF_SCAN_INTERVAL, default=30): cv.time_period,
+    vol.Optional(CONF_SCAN_INTERVAL, default=25): cv.time_period,
     vol.Required(CONF_LOCAL_KEY): cv.string,
     vol.Optional(CONF_ID, default=DEFAULT_ID): cv.string,
     vol.Optional(CONF_SWITCHES, default={}):
