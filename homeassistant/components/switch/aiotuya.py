@@ -8,7 +8,8 @@ import logging
 import asyncio
 import voluptuous as vol
 from homeassistant.components.switch import SwitchDevice, PLATFORM_SCHEMA
-from homeassistant.const import (CONF_NAME, CONF_HOST, CONF_ID, CONF_SWITCHES, CONF_FRIENDLY_NAME, CONF_SCAN_INTERVAL)
+from homeassistant.const import (CONF_NAME, CONF_HOST, CONF_ID, CONF_SWITCHES,
+                                 CONF_FRIENDLY_NAME, CONF_SCAN_INTERVAL)
 from homeassistant.core import callback
 import homeassistant.helpers.config_validation as cv
 
