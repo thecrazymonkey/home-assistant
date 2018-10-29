@@ -612,7 +612,7 @@ mficlient==0.3.0
 miflora==0.4.0
 
 # homeassistant.components.climate.mill
-millheater==0.2.0
+millheater==0.2.1
 
 # homeassistant.components.sensor.mitemp_bt
 mitemp_bt==0.0.1
@@ -1557,7 +1557,7 @@ xbee-helper==0.0.7
 xboxapi==0.1.1
 
 # homeassistant.components.knx
-xknx==0.8.5
+xknx==0.9.1
 
 # homeassistant.components.media_player.bluesound
 # homeassistant.components.sensor.startca
