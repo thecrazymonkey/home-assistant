@@ -12,12 +12,14 @@ from homeassistant.const import (CONF_NAME, CONF_HOST, CONF_ID, CONF_SWITCHES,
                                  CONF_FRIENDLY_NAME, CONF_SCAN_INTERVAL)
 from homeassistant.core import callback
 import homeassistant.helpers.config_validation as cv
+from homeassistant.helpers.event import async_call_later
 
 CONF_DEVICE_ID = 'device_id'
 CONF_LOCAL_KEY = 'local_key'
 
 DEFAULT_ID = '1'
 DEFAULT_NAME = 'aiotuya'
+# hack to load base package
 REQUIREMENTS = ['aiotuya==0.7.1']
 
 SWITCH_SCHEMA = vol.Schema({
@@ -153,15 +155,18 @@ class TuyaManager:
     def on_init(self):
         """Called on first reported connecto from aiotuya."""
         _LOGGER.debug('on_init()')
-        self.add_entities(self.switches, update_before_add=False)
+        self.add_entities(self.switches, update_before_add=True)
         _LOGGER.debug('on_init() - end')
 
     @callback
-    def register_job(self, job):
+    def register_job(self, job, delay=None):
         """Helper proc to schedule new job within hass."""
         _LOGGER.debug('register_job()')
         #  not clear yet
-        self.hass.async_add_job(job)
+        if delay is None:
+            self.hass.async_add_job(job)
+        else:
+            async_call_later(self.hass, delay, job)
 
     @callback
     def data_parsed(self, result):
@@ -181,7 +186,6 @@ class TuyaManager:
         _LOGGER.debug('on_connection_lost(): %s', exc)
         # may need some handling if message did not get sent
 
-
 class TuyaPlug(SwitchDevice):
     """Representation of a Tuya switch."""
 
@@ -191,7 +195,6 @@ class TuyaPlug(SwitchDevice):
         self._name = name
         self._state = False
         self._switchid = switchid
-        self.lock = asyncio.Lock()
 
     @property
     def name(self):
@@ -208,12 +211,12 @@ class TuyaPlug(SwitchDevice):
         """Check if Tuya switch is on."""
         return self._state
 
-#    @property
-#    def should_poll(self):
-#        """Async doesn't need poll.
-#        Need explicitly call schedule_update_ha_state() after state changed.
-#        """
-#        return False
+    @property
+    def should_poll(self):
+        """Async doesn't need poll.
+        Need explicitly call schedule_update_ha_state() after state changed.
+        """
+        return False
 
     def set_state(self, state):
         """Set state during async update."""
@@ -223,17 +226,23 @@ class TuyaPlug(SwitchDevice):
         """Turn Tuya switch on."""
         _LOGGER.debug("TuyaPlug:async_turn_on()")
         await self._device.set_status(True, self._switchid)
-        await asyncio.sleep(1)
 
 
     async def async_turn_off(self, **kwargs):
         """Turn Tuya switch off."""
         _LOGGER.debug("TuyaPlug:async_turn_off()")
         await self._device.set_status(False, self._switchid)
-        await asyncio.sleep(1)
 
     async def async_update(self):
         """Get state of Tuya switch."""
         # should come automatically
         _LOGGER.debug("TuyaPlug:async_update()")
         await self._device.status()
+        async_call_later(self.hass, 25, self.send_echo)
+
+    async def send_echo(self, _):
+        """Send echo command and set timer for new one."""
+        # should come automatically
+        _LOGGER.debug("TuyaPlug:send_echo()")
+        await self._device.echo()
+        async_call_later(self.hass, 25, self.send_echo)
