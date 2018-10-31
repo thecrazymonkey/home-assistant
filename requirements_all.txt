@@ -12,6 +12,7 @@ pip>=8.0.3
 pytz>=2018.04
 pyyaml>=3.13,<4
 requests==2.20.0
+ruamel.yaml==0.15.72
 voluptuous==0.11.5
 voluptuous-serialize==2.0.0
 
@@ -88,7 +89,7 @@ abodepy==0.14.0
 afsapi==0.0.4
 
 # homeassistant.components.device_tracker.asuswrt
-aioasuswrt==1.1.0
+aioasuswrt==1.1.2
 
 # homeassistant.components.device_tracker.automatic
 aioautomatic==0.6.5
@@ -1038,7 +1039,7 @@ pyoppleio==1.0.5
 pyota==2.0.5
 
 # homeassistant.components.opentherm_gw
-pyotgw==0.2b1
+pyotgw==0.3b0
 
 # homeassistant.auth.mfa_modules.notify
 # homeassistant.auth.mfa_modules.totp
@@ -1312,9 +1313,6 @@ roombapy==1.3.1
 
 # homeassistant.components.switch.rpi_rf
 # rpi-rf==0.9.6
-
-# homeassistant.components.lovelace
-ruamel.yaml==0.15.72
 
 # homeassistant.components.media_player.russound_rnet
 russound==0.1.9
