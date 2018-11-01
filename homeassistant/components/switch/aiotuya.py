@@ -21,6 +21,8 @@ DEFAULT_ID = '1'
 DEFAULT_NAME = 'aiotuya'
 # hack to load base package
 REQUIREMENTS = ['aiotuya==0.7.1']
+# for use with local deployment 
+#REQUIREMENTS = ['https://github.com/thecrazymonkey/python-tuya-async/archive/master.zip#aiotuya==0.7.1']
 
 SWITCH_SCHEMA = vol.Schema({
     vol.Optional(CONF_ID, default=DEFAULT_ID): cv.string,
