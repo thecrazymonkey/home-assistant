@@ -709,7 +709,7 @@ pdunehd==1.3
 pexpect==4.6.0
 
 # homeassistant.components.rpi_pfio
-pifacecommon==4.1.2
+pifacecommon==4.2.2
 
 # homeassistant.components.rpi_pfio
 pifacedigitalio==3.0.5
@@ -1210,7 +1210,7 @@ python-telegram-bot==11.1.0
 python-twitch-client==0.6.0
 
 # homeassistant.components.velbus
-python-velbus==2.0.20
+python-velbus==2.0.21
 
 # homeassistant.components.media_player.vlc
 python-vlc==1.1.2
@@ -1348,8 +1348,8 @@ sendgrid==5.6.0
 # homeassistant.components.sensor.sensehat
 sense-hat==2.2.0
 
-# homeassistant.components.sensor.sense
-sense_energy==0.4.2
+# homeassistant.components.sense
+sense_energy==0.5.1
 
 # homeassistant.components.media_player.aquostv
 sharp_aquos_rc==0.3.2
