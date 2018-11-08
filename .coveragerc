@@ -203,6 +203,9 @@ omit =
     homeassistant/components/logi_circle.py
     homeassistant/components/*/logi_circle.py
 
+    homeassistant/components/lupusec.py
+    homeassistant/components/*/lupusec.py
+
     homeassistant/components/lutron.py
     homeassistant/components/*/lutron.py
 
@@ -332,6 +335,9 @@ omit =
 
     homeassistant/components/toon.py
     homeassistant/components/*/toon.py
+
+    homeassistant/components/tplink_lte.py
+    homeassistant/components/*/tplink_lte.py
 
     homeassistant/components/tradfri.py
     homeassistant/components/*/tradfri.py
@@ -474,6 +480,7 @@ omit =
     homeassistant/components/device_tracker/freebox.py
     homeassistant/components/device_tracker/fritz.py
     homeassistant/components/device_tracker/google_maps.py
+    homeassistant/components/device_tracker/googlehome.py
     homeassistant/components/device_tracker/gpslogger.py
     homeassistant/components/device_tracker/hitron_coda.py
     homeassistant/components/device_tracker/huawei_router.py
@@ -496,6 +503,7 @@ omit =
     homeassistant/components/device_tracker/tile.py
     homeassistant/components/device_tracker/tomato.py
     homeassistant/components/device_tracker/tplink.py
+    homeassistant/components/device_tracker/traccar.py
     homeassistant/components/device_tracker/trackr.py
     homeassistant/components/device_tracker/ubus.py
     homeassistant/components/downloader.py
@@ -510,6 +518,7 @@ omit =
     homeassistant/components/image_processing/dlib_face_detect.py
     homeassistant/components/image_processing/dlib_face_identify.py
     homeassistant/components/image_processing/seven_segments.py
+    homeassistant/components/image_processing/tensorflow.py
     homeassistant/components/keyboard_remote.py
     homeassistant/components/keyboard.py
     homeassistant/components/light/avion.py
@@ -571,7 +580,7 @@ omit =
     homeassistant/components/media_player/itunes.py
     homeassistant/components/media_player/kodi.py
     homeassistant/components/media_player/lg_netcast.py
-    homeassistant/components/media_player/lg_soundbar.py    
+    homeassistant/components/media_player/lg_soundbar.py
     homeassistant/components/media_player/liveboxplaytv.py
     homeassistant/components/media_player/mediaroom.py
     homeassistant/components/media_player/mpchc.py
@@ -762,10 +771,12 @@ omit =
     homeassistant/components/sensor/rainbird.py
     homeassistant/components/sensor/ripple.py
     homeassistant/components/sensor/rtorrent.py
+    homeassistant/components/sensor/ruter.py
     homeassistant/components/sensor/scrape.py
     homeassistant/components/sensor/sensehat.py
     homeassistant/components/sensor/serial_pm.py
     homeassistant/components/sensor/serial.py
+    homeassistant/components/sensor/seventeentrack.py
     homeassistant/components/sensor/sht31.py
     homeassistant/components/sensor/shodan.py
     homeassistant/components/sensor/sigfox.py
@@ -788,6 +799,7 @@ omit =
     homeassistant/components/sensor/systemmonitor.py
     homeassistant/components/sensor/sytadin.py
     homeassistant/components/sensor/tank_utility.py
+    homeassistant/components/sensor/tautulli.py
     homeassistant/components/sensor/ted5000.py
     homeassistant/components/sensor/temper.py
     homeassistant/components/sensor/thermoworks_smoke.py
