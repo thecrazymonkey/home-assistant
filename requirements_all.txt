@@ -32,7 +32,7 @@ Adafruit-SHT31==1.0.2
 # Adafruit_BBIO==1.0.0
 
 # homeassistant.components.homekit
-HAP-python==2.4.0
+HAP-python==2.4.1
 
 # homeassistant.components.notify.mastodon
 Mastodon.py==1.3.1
@@ -333,7 +333,7 @@ einder==0.3.1
 eliqonline==1.0.14
 
 # homeassistant.components.elkm1
-elkm1-lib==0.7.11
+elkm1-lib==0.7.12
 
 # homeassistant.components.enocean
 enocean==0.40
@@ -372,6 +372,9 @@ fedexdeliverymanager==1.0.6
 
 # homeassistant.components.feedreader
 feedparser==5.2.1
+
+# homeassistant.components.fibaro
+fiblary3==0.1.7
 
 # homeassistant.components.sensor.fints
 fints==1.0.1
@@ -628,7 +631,7 @@ mficlient==0.3.0
 miflora==0.4.0
 
 # homeassistant.components.climate.mill
-millheater==0.2.3
+millheater==0.2.4
 
 # homeassistant.components.sensor.mitemp_bt
 mitemp_bt==0.0.1
@@ -683,7 +686,7 @@ nuheat==0.3.0
 # homeassistant.components.image_processing.opencv
 # homeassistant.components.image_processing.tensorflow
 # homeassistant.components.sensor.pollen
-numpy==1.15.3
+numpy==1.15.4
 
 # homeassistant.components.google
 oauth2client==4.0.0
@@ -815,7 +818,7 @@ pyRFXtrx==0.23
 pySwitchmate==0.4.3
 
 # homeassistant.components.tibber
-pyTibber==0.7.5
+pyTibber==0.8.2
 
 # homeassistant.components.switch.dlink
 pyW215==0.6.0
@@ -880,7 +883,7 @@ pycsspeechtts==1.0.2
 
 # homeassistant.components.daikin
 # homeassistant.components.climate.daikin
-pydaikin==0.6
+pydaikin==0.7
 
 # homeassistant.components.deconz
 pydeconz==47
@@ -1333,7 +1336,7 @@ raincloudy==0.0.5
 # raspihats==2.2.3
 
 # homeassistant.components.rainmachine
-regenmaschine==1.0.2
+regenmaschine==1.0.7
 
 # homeassistant.components.python_script
 restrictedpython==4.0b6
@@ -1451,7 +1454,7 @@ spotipy-homeassistant==2.4.4.dev1
 
 # homeassistant.components.recorder
 # homeassistant.components.sensor.sql
-sqlalchemy==1.2.13
+sqlalchemy==1.2.14
 
 # homeassistant.components.sensor.srp_energy
 srpenergy==1.0.5
@@ -1631,7 +1634,7 @@ yeelight==0.4.3
 yeelightsunflower==0.0.10
 
 # homeassistant.components.media_extractor
-youtube_dl==2018.10.29
+youtube_dl==2018.11.07
 
 # homeassistant.components.light.zengge
 zengge==0.2
