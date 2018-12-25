@@ -84,8 +84,6 @@ async def make_sensor(discovery_info):
     else:
         sensor = Sensor(**discovery_info)
 
-    if discovery_info['new_join']:
-        await sensor.async_configure()
     return sensor
 
 
@@ -116,11 +114,6 @@ class Sensor(ZhaEntity):
     def cluster(self):
         """Return Sensor's cluster."""
         return self._cluster
-
-    @property
-    def should_poll(self) -> bool:
-        """State gets pushed from device."""
-        return False
 
     @property
     def state(self) -> str:
