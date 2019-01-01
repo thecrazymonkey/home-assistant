@@ -105,7 +105,7 @@ aiofreepybox==0.0.6
 aioftp==0.12.0
 
 # homeassistant.components.remote.harmony
-aioharmony==0.1.1
+aioharmony==0.1.2
 
 # homeassistant.components.emulated_hue
 # homeassistant.components.http
@@ -627,6 +627,9 @@ locationsharinglib==3.0.9
 # homeassistant.components.logi_circle
 logi_circle==0.1.7
 
+# homeassistant.components.sensor.london_underground
+london-tube-status==0.2
+
 # homeassistant.components.luftdaten
 luftdaten==0.3.4
 
@@ -1010,7 +1013,7 @@ pygtt==1.1.2
 pyhaversion==2.0.3
 
 # homeassistant.components.binary_sensor.hikvision
-pyhik==0.1.8
+pyhik==0.1.9
 
 # homeassistant.components.hive
 pyhiveapi==0.2.14
@@ -1345,7 +1348,7 @@ pytile==2.0.5
 pytouchline==0.7
 
 # homeassistant.components.device_tracker.traccar
-pytraccar==0.2.0
+pytraccar==0.2.1
 
 # homeassistant.components.device_tracker.trackr
 pytrackr==0.0.5
@@ -1415,6 +1418,9 @@ regenmaschine==1.1.0
 
 # homeassistant.components.python_script
 restrictedpython==4.0b7
+
+# homeassistant.components.idteck_prox
+rfk101py==0.0.1
 
 # homeassistant.components.rflink
 rflink==0.0.37
