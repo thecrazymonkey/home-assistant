@@ -172,8 +172,8 @@ class MqttAlarm(MqttAvailability, MqttDiscoveryUpdate, MqttEntityDeviceInfo,
         if code is None:
             return None
         if isinstance(code, str) and re.search('^\\d+$', code):
-            return 'Number'
-        return 'Any'
+            return alarm.FORMAT_NUMBER
+        return alarm.FORMAT_TEXT
 
     async def async_alarm_disarm(self, code=None):
         """Send disarm command.
