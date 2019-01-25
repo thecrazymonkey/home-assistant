@@ -80,6 +80,8 @@ omit =
     homeassistant/components/digital_ocean.py
     homeassistant/components/*/digital_ocean.py
 
+    homeassistant/components/danfoss_air/*
+
     homeassistant/components/dominos.py
 
     homeassistant/components/doorbird.py
@@ -90,6 +92,9 @@ omit =
 
     homeassistant/components/eight_sleep.py
     homeassistant/components/*/eight_sleep.py
+
+    homeassistant/components/ecoal_boiler.py
+    homeassistant/components/*/ecoal_boiler.py
 
     homeassistant/components/ecobee.py
     homeassistant/components/*/ecobee.py
@@ -169,7 +174,8 @@ omit =
     homeassistant/components/homematic/__init__.py
     homeassistant/components/*/homematic.py
 
-    homeassistant/components/homematicip_cloud.py
+    homeassistant/components/homematicip_cloud/hap.py
+    homeassistant/components/homematicip_cloud/device.py
     homeassistant/components/*/homematicip_cloud.py
 
     homeassistant/components/homeworks.py
@@ -239,7 +245,7 @@ omit =
     homeassistant/components/lutron_caseta.py
     homeassistant/components/*/lutron_caseta.py
 
-    homeassistant/components/*/mailgun.py
+    homeassistant/components/mailgun/notify.py
 
     homeassistant/components/matrix.py
     homeassistant/components/*/matrix.py
@@ -451,7 +457,6 @@ omit =
     homeassistant/components/*/zigbee.py
 
     homeassistant/components/zoneminder/*
-    homeassistant/components/*/zoneminder.py
 
     homeassistant/components/tuya.py
     homeassistant/components/*/tuya.py
@@ -574,6 +579,7 @@ omit =
     homeassistant/components/image_processing/dlib_face_identify.py
     homeassistant/components/image_processing/seven_segments.py
     homeassistant/components/image_processing/tensorflow.py
+    homeassistant/components/image_processing/qrcode.py
     homeassistant/components/keyboard_remote.py
     homeassistant/components/keyboard.py
     homeassistant/components/light/avion.py
@@ -581,6 +587,7 @@ omit =
     homeassistant/components/light/blinkt.py
     homeassistant/components/light/decora_wifi.py
     homeassistant/components/light/decora.py
+    homeassistant/components/light/everlights.py
     homeassistant/components/light/flux_led.py
     homeassistant/components/light/futurenow.py
     homeassistant/components/light/greenwave.py
