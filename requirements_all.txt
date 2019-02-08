@@ -1,6 +1,6 @@
 # Home Assistant core
 aiohttp==3.5.4
-astral==1.8
+astral==1.9.2
 async_timeout==3.0.1
 attrs==18.2.0
 bcrypt==3.1.5
@@ -37,6 +37,9 @@ HAP-python==2.4.2
 
 # homeassistant.components.notify.mastodon
 Mastodon.py==1.3.1
+
+# homeassistant.components.sensor.github
+PyGithub==1.43.5
 
 # homeassistant.components.isy994
 PyISY==1.1.1
@@ -327,7 +330,7 @@ discogs_client==2.2.1
 discord.py==0.16.12
 
 # homeassistant.components.updater
-distro==1.3.0
+distro==1.4.0
 
 # homeassistant.components.switch.digitalloggers
 dlipower==0.7.165
@@ -535,7 +538,7 @@ homeassistant-pyozw==0.1.2
 homekit==0.12.2
 
 # homeassistant.components.homematicip_cloud
-homematicip==0.10.4
+homematicip==0.10.5
 
 # homeassistant.components.google
 # homeassistant.components.remember_the_milk
@@ -891,7 +894,7 @@ pyMetno==0.3.0
 pyRFXtrx==0.23
 
 # homeassistant.components.switch.switchmate
-pySwitchmate==0.4.4
+pySwitchmate==0.4.5
 
 # homeassistant.components.tibber
 pyTibber==0.9.4
@@ -1060,8 +1063,8 @@ pyialarm==0.3
 # homeassistant.components.device_tracker.icloud
 pyicloud==0.9.1
 
-# homeassistant.components.weather.ipma
-pyipma==1.1.6
+# homeassistant.components.ipma.weather
+pyipma==1.2.1
 
 # homeassistant.components.sensor.irish_rail_transport
 pyirishrail==0.0.2
@@ -1228,7 +1231,7 @@ pysma==0.3.1
 pysmartapp==0.3.0
 
 # homeassistant.components.smartthings
-pysmartthings==0.5.0
+pysmartthings==0.6.0
 
 # homeassistant.components.device_tracker.snmp
 # homeassistant.components.sensor.snmp
@@ -1742,7 +1745,7 @@ xbee-helper==0.0.7
 xboxapi==0.1.1
 
 # homeassistant.components.knx
-xknx==0.9.3
+xknx==0.9.4
 
 # homeassistant.components.media_player.bluesound
 # homeassistant.components.sensor.startca
@@ -1750,6 +1753,9 @@ xknx==0.9.3
 # homeassistant.components.sensor.yr
 # homeassistant.components.sensor.zestimate
 xmltodict==0.11.0
+
+# homeassistant.components.xs1
+xs1-api-client==2.3.5
 
 # homeassistant.components.sensor.yweather
 # homeassistant.components.weather.yweather
@@ -1765,7 +1771,7 @@ yeelight==0.4.3
 yeelightsunflower==0.0.10
 
 # homeassistant.components.media_extractor
-youtube_dl==2019.01.24
+youtube_dl==2019.02.08
 
 # homeassistant.components.light.zengge
 zengge==0.2

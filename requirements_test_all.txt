@@ -122,7 +122,7 @@ home-assistant-frontend==20190203.0
 homekit==0.12.2
 
 # homeassistant.components.homematicip_cloud
-homematicip==0.10.4
+homematicip==0.10.5
 
 # homeassistant.components.influxdb
 # homeassistant.components.sensor.influxdb
@@ -217,7 +217,7 @@ pyqwikswitch==0.8
 pysmartapp==0.3.0
 
 # homeassistant.components.smartthings
-pysmartthings==0.5.0
+pysmartthings==0.6.0
 
 # homeassistant.components.sonos
 pysonos==0.0.6
