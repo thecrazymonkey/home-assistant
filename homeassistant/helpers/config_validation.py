@@ -34,6 +34,7 @@ OLD_ENTITY_ID_VALIDATION = r"^(\w+)\.(\w+)$"
 # persistent notification. Rare temporary exception to use a global.
 INVALID_SLUGS_FOUND = {}
 INVALID_ENTITY_IDS_FOUND = {}
+INVALID_EXTRA_KEYS_FOUND = []
 
 
 # Home Assistant types
@@ -292,7 +293,7 @@ def time_period_str(value: str) -> timedelta:
     """Validate and transform time offset."""
     if isinstance(value, int):
         raise vol.Invalid('Make sure you wrap time values in quotes')
-    elif not isinstance(value, str):
+    if not isinstance(value, str):
         raise vol.Invalid(TIME_PERIOD_ERROR.format(value))
 
     negative_offset = False
@@ -439,7 +440,7 @@ def template(value):
     """Validate a jinja2 template."""
     if value is None:
         raise vol.Invalid('template value is None')
-    elif isinstance(value, (list, dict, template_helper.Template)):
+    if isinstance(value, (list, dict, template_helper.Template)):
         raise vol.Invalid('template value should be a string')
 
     value = template_helper.Template(str(value))
@@ -606,7 +607,8 @@ def deprecated(key: str,
         else:
             value = default
         if (replacement_key
-                and replacement_key not in config
+                and (replacement_key not in config
+                     or default == config.get(replacement_key))
                 and value is not None):
             config[replacement_key] = value
 
@@ -632,8 +634,66 @@ def key_dependency(key, dependency):
 
 
 # Schemas
+<<<<<<< HEAD
 
 PLATFORM_SCHEMA = vol.Schema({
+=======
+class HASchema(vol.Schema):
+    """Schema class that allows us to mark PREVENT_EXTRA errors as warnings."""
+
+    def __call__(self, data):
+        """Override __call__ to mark PREVENT_EXTRA as warning."""
+        try:
+            return super().__call__(data)
+        except vol.Invalid as orig_err:
+            if self.extra != vol.PREVENT_EXTRA:
+                raise
+
+            # orig_error is of type vol.MultipleInvalid (see super __call__)
+            assert isinstance(orig_err, vol.MultipleInvalid)
+            # pylint: disable=no-member
+            # If it fails with PREVENT_EXTRA, try with ALLOW_EXTRA
+            self.extra = vol.ALLOW_EXTRA
+            # In case it still fails the following will raise
+            try:
+                validated = super().__call__(data)
+            finally:
+                self.extra = vol.PREVENT_EXTRA
+
+            # This is a legacy config, print warning
+            extra_key_errs = [err for err in orig_err.errors
+                              if err.error_message == 'extra keys not allowed']
+            if extra_key_errs:
+                msg = "Your configuration contains extra keys " \
+                      "that the platform does not support.\n" \
+                      "Please remove "
+                submsg = ', '.join('[{}]'.format(err.path[-1]) for err in
+                                   extra_key_errs)
+                submsg += '. '
+                if hasattr(data, '__config_file__'):
+                    submsg += " (See {}, line {}). ".format(
+                        data.__config_file__, data.__line__)
+                msg += submsg
+                logging.getLogger(__name__).warning(msg)
+                INVALID_EXTRA_KEYS_FOUND.append(submsg)
+            else:
+                # This should not happen (all errors should be extra key
+                # errors). Let's raise the original error anyway.
+                raise orig_err
+
+            # Return legacy validated config
+            return validated
+
+    def extend(self, schema, required=None, extra=None):
+        """Extend this schema and convert it to HASchema if necessary."""
+        ret = super().extend(schema, required=required, extra=extra)
+        if extra is not None:
+            return ret
+        return HASchema(ret.schema, required=required, extra=self.extra)
+
+
+PLATFORM_SCHEMA = HASchema({
+>>>>>>> upstream/dev
     vol.Required(CONF_PLATFORM): string,
     vol.Optional(CONF_ENTITY_NAMESPACE): string,
     vol.Optional(CONF_SCAN_INTERVAL): time_period

@@ -1,9 +1,4 @@
-"""
-Support for Snips on-device ASR and NLU.
-
-For more details about this component, please refer to the documentation at
-https://home-assistant.io/components/snips/
-"""
+"""Support for Snips on-device ASR and NLU."""
 import json
 import logging
 from datetime import timedelta
@@ -110,10 +105,10 @@ async def async_setup(hass, config):
             _LOGGER.error('Received invalid JSON: %s', payload)
             return
 
-        if (request['intent']['probability']
+        if (request['intent']['confidenceScore']
                 < config[DOMAIN].get(CONF_PROBABILITY)):
             _LOGGER.warning("Intent below probaility threshold %s < %s",
-                            request['intent']['probability'],
+                            request['intent']['confidenceScore'],
                             config[DOMAIN].get(CONF_PROBABILITY))
             return
 
@@ -135,7 +130,9 @@ async def async_setup(hass, config):
                 'value': slot['rawValue']}
         slots['site_id'] = {'value': request.get('siteId')}
         slots['session_id'] = {'value': request.get('sessionId')}
-        slots['probability'] = {'value': request['intent']['probability']}
+        slots['confidenceScore'] = {
+            'value': request['intent']['confidenceScore']
+        }
 
         try:
             intent_response = await intent.async_handle(

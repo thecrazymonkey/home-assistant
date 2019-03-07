@@ -1,7 +1,11 @@
 # coding: utf-8
 """Constants used by Home Assistant components."""
 MAJOR_VERSION = 0
+<<<<<<< HEAD
 MINOR_VERSION = 88
+=======
+MINOR_VERSION = 89
+>>>>>>> upstream/dev
 PATCH_VERSION = '0.dev0'
 __short_version__ = '{}.{}'.format(MAJOR_VERSION, MINOR_VERSION)
 __version__ = '{}.{}'.format(__short_version__, PATCH_VERSION)
@@ -147,7 +151,11 @@ CONF_TTL = 'ttl'
 CONF_TYPE = 'type'
 CONF_UNIT_OF_MEASUREMENT = 'unit_of_measurement'
 CONF_UNIT_SYSTEM = 'unit_system'
+
+# Deprecated in 0.88.0, invalidated in 0.91.0, remove in 0.92.0
 CONF_UPDATE_INTERVAL = 'update_interval'
+CONF_UPDATE_INTERVAL_INVALIDATION_VERSION = '0.91.0'
+
 CONF_URL = 'url'
 CONF_USERNAME = 'username'
 CONF_VALUE_TEMPLATE = 'value_template'
@@ -241,6 +249,9 @@ ATTR_NAME = 'name'
 # Contains one string or a list of strings, each being an entity id
 ATTR_ENTITY_ID = 'entity_id'
 
+# Contains one string or a list of strings, each being an area id
+ATTR_AREA_ID = 'area_id'
+
 # String with a friendly name for the entity
 ATTR_FRIENDLY_NAME = 'friendly_name'
 
@@ -315,6 +326,9 @@ ATTR_DEVICE_CLASS = 'device_class'
 ATTR_TEMPERATURE = 'temperature'
 
 # #### UNITS OF MEASUREMENT ####
+# Power units
+POWER_WATT = 'W'
+
 # Temperature units
 TEMP_CELSIUS = '°C'
 TEMP_FAHRENHEIT = '°F'

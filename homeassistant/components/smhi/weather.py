@@ -1,9 +1,4 @@
-"""
-Support for the Swedish weather institute weather service.
-
-For more details about this platform, please refer to the documentation
-https://home-assistant.io/components/weather.smhi/
-"""
+"""Support for the Swedish weather institute weather service."""
 import asyncio
 from datetime import timedelta
 import logging
@@ -223,7 +218,7 @@ class SmhiWeather(WeatherEntity):
                 ATTR_FORECAST_TEMP: forecast.temperature_max,
                 ATTR_FORECAST_TEMP_LOW: forecast.temperature_min,
                 ATTR_FORECAST_PRECIPITATION:
-                    round(forecast.total_precipitation),
+                    round(forecast.total_precipitation, 1),
                 ATTR_FORECAST_CONDITION: condition,
             })
 

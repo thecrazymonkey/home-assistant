@@ -1,16 +1,11 @@
-"""
-Support for HomematicIP Cloud sensors.
-
-For more details about this platform, please refer to the documentation at
-https://home-assistant.io/components/sensor.homematicip_cloud/
-"""
+"""Support for HomematicIP Cloud sensors."""
 import logging
 
 from homeassistant.components.homematicip_cloud import (
     DOMAIN as HMIPC_DOMAIN, HMIPC_HAPID, HomematicipGenericDevice)
 from homeassistant.const import (
-    DEVICE_CLASS_HUMIDITY, DEVICE_CLASS_ILLUMINANCE,
-    DEVICE_CLASS_TEMPERATURE, TEMP_CELSIUS)
+    DEVICE_CLASS_HUMIDITY, DEVICE_CLASS_ILLUMINANCE, DEVICE_CLASS_TEMPERATURE,
+    POWER_WATT, TEMP_CELSIUS)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -32,7 +27,8 @@ async def async_setup_platform(
 async def async_setup_entry(hass, config_entry, async_add_entities):
     """Set up the HomematicIP Cloud sensors from a config entry."""
     from homematicip.aio.device import (
-        AsyncHeatingThermostat, AsyncTemperatureHumiditySensorWithoutDisplay,
+        AsyncHeatingThermostat, AsyncHeatingThermostatCompact,
+        AsyncTemperatureHumiditySensorWithoutDisplay,
         AsyncTemperatureHumiditySensorDisplay, AsyncMotionDetectorIndoor,
         AsyncTemperatureHumiditySensorOutdoor,
         AsyncMotionDetectorPushButton, AsyncLightSensor,
@@ -42,7 +38,8 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     home = hass.data[HMIPC_DOMAIN][config_entry.data[HMIPC_HAPID]].home
     devices = [HomematicipAccesspointStatus(home)]
     for device in home.devices:
-        if isinstance(device, AsyncHeatingThermostat):
+        if isinstance(device, (AsyncHeatingThermostat,
+                               AsyncHeatingThermostatCompact)):
             devices.append(HomematicipHeatingThermostat(home, device))
         if isinstance(device, (AsyncTemperatureHumiditySensorDisplay,
                                AsyncTemperatureHumiditySensorWithoutDisplay,
@@ -69,6 +66,17 @@ class HomematicipAccesspointStatus(HomematicipGenericDevice):
     def __init__(self, home):
         """Initialize access point device."""
         super().__init__(home, home)
+
+    @property
+    def device_info(self):
+        """Return device specific attributes."""
+        # Adds a sensor to the existing HAP device
+        return {
+            'identifiers': {
+                # Serial numbers of Homematic IP device
+                (HMIPC_DOMAIN, self._device.id)
+            }
+        }
 
     @property
     def icon(self):
@@ -217,4 +225,4 @@ class HomematicipPowerSensor(HomematicipGenericDevice):
     @property
     def unit_of_measurement(self):
         """Return the unit this state is expressed in."""
-        return 'W'
+        return POWER_WATT
