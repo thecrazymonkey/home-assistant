@@ -2,7 +2,7 @@
 aiohttp==3.5.4
 astral==1.10.1
 async_timeout==3.0.1
-attrs==18.2.0
+attrs==19.1.0
 bcrypt==3.1.6
 certifi>=2018.04.16
 jinja2>=2.10
@@ -64,7 +64,7 @@ PyQRCode==1.2.1
 PyRMVtransport==0.1.3
 
 # homeassistant.components.switchbot
-# PySwitchbot==0.5
+# PySwitchbot==0.6
 
 # homeassistant.components.transport_nsw
 PyTransportNSW==0.1.1
@@ -1237,7 +1237,7 @@ pypoint==1.1.1
 pypollencom==2.2.3
 
 # homeassistant.components.ps4
-pyps4-homeassistant==0.5.2
+pyps4-homeassistant==0.7.2
 
 # homeassistant.components.qwikswitch
 pyqwikswitch==0.93
@@ -1432,7 +1432,7 @@ pytile==2.0.6
 pytouchline==0.7
 
 # homeassistant.components.traccar
-pytraccar==0.7.0
+pytraccar==0.8.0
 
 # homeassistant.components.trackr
 pytrackr==0.0.5
@@ -1830,7 +1830,7 @@ yeelight==0.5.0
 yeelightsunflower==0.0.10
 
 # homeassistant.components.media_extractor
-youtube_dl==2019.04.07
+youtube_dl==2019.04.17
 
 # homeassistant.components.zengge
 zengge==0.2
