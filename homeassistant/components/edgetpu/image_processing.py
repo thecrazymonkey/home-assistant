@@ -161,9 +161,9 @@ class EdgeTPUImageProcessor(ImageProcessingEntity):
         # Display result.
         if ans:
             for obj in ans:
-                _LOGGER.info("obj = %s", obj)
+                _LOGGER.info("label_id = %d", obj.label_id)
                 if self._labels:
-                    _LOGGER.info(self._labels[obj.label_id])
+                    _LOGGER.info("label=%s", self._labels[obj.label_id])
                 _LOGGER.info("score = %f", obj.score)
                 box = obj.bounding_box.flatten().tolist()
                 _LOGGER.info("box = %s", box)
