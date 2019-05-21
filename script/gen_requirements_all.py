@@ -42,6 +42,7 @@ COMMENT_REQUIREMENTS = (
 )
 
 TEST_REQUIREMENTS = (
+    'ambiclimate',
     'aioambient',
     'aioautomatic',
     'aiobotocore',
@@ -94,6 +95,7 @@ TEST_REQUIREMENTS = (
     'pilight',
     'pmsensor',
     'prometheus_client',
+    'ptvsd',
     'pushbullet.py',
     'py-canary',
     'pyblackbird',
@@ -101,6 +103,7 @@ TEST_REQUIREMENTS = (
     'pydispatcher',
     'pyheos',
     'pyhomematic',
+    'pyiqvia',
     'pylitejet',
     'pymonoprice',
     'pynx584',
