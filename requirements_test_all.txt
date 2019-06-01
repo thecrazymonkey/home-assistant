@@ -70,10 +70,10 @@ apns2==0.3.0
 av==6.1.2
 
 # homeassistant.components.axis
-axis==23
+axis==24
 
 # homeassistant.components.zha
-bellows-homeassistant==0.7.3
+bellows-homeassistant==0.8.0
 
 # homeassistant.components.caldav
 caldav==0.6.1
@@ -136,7 +136,7 @@ ha-ffmpeg==2.0
 hangups==0.4.9
 
 # homeassistant.components.cloud
-hass-nabucasa==0.12
+hass-nabucasa==0.13
 
 # homeassistant.components.mqtt
 hbmqtt==0.9.4
@@ -148,7 +148,7 @@ hdate==0.8.7
 holidays==0.9.10
 
 # homeassistant.components.frontend
-home-assistant-frontend==20190529.0
+home-assistant-frontend==20190530.0
 
 # homeassistant.components.homekit_controller
 homekit[IP]==0.14.0
@@ -274,7 +274,7 @@ pysmartapp==0.3.2
 pysmartthings==0.6.8
 
 # homeassistant.components.sonos
-pysonos==0.0.12
+pysonos==0.0.14
 
 # homeassistant.components.spc
 pyspcwebgw==0.4.0
@@ -355,4 +355,4 @@ wakeonlan==1.1.6
 zeroconf==0.22.0
 
 # homeassistant.components.zha
-zigpy-homeassistant==0.3.3
+zigpy-homeassistant==0.4.2
