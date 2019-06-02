@@ -17,6 +17,7 @@ virtualization/Docker/* @home-assistant/docker
 homeassistant/scripts/check_config.py @kellerza
 
 # Integrations
+homeassistant/components/adguard/* @frenck
 homeassistant/components/airvisual/* @bachya
 homeassistant/components/alarm_control_panel/* @colinodell
 homeassistant/components/alpha_vantage/* @fabaff
@@ -202,6 +203,7 @@ homeassistant/components/ruter/* @ludeeus
 homeassistant/components/scene/* @home-assistant/core
 homeassistant/components/scrape/* @fabaff
 homeassistant/components/script/* @home-assistant/core
+homeassistant/components/sense/* @kbickar
 homeassistant/components/sensibo/* @andrey-git
 homeassistant/components/serial/* @fabaff
 homeassistant/components/seventeentrack/* @bachya
